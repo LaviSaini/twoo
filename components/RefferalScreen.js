@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput,ToastAndroid } from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
-import { Header } from './Header';
+import { HeaderDraw } from './HeaderDraw';
+import { HeaderBackground } from '@react-navigation/elements';
 //import img3 from '../images/background.png';
 
 
@@ -13,7 +14,7 @@ export const RefferalScreen = ({ navigation }) => {
     }
     return (
         <View>
-            <Header navigation={navigation} />
+            <HeaderDraw navigation={navigation} />
             <View>
                 <Text style={styles.text}>
                     Below is your referral code to share with your friends.

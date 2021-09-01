@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
 import { Picker } from '@react-native-picker/picker'
-import { Header } from './Header';
+import { HeaderDraw } from './HeaderDraw';
 import axios from 'axios';
 
 const pwd = '../images/wallet.png'
@@ -53,7 +53,7 @@ export const Payment = ({ navigation }) => {
                 }
             })
                 .then(function (response) {
-                    // handle success
+                    
                     console.log(response.data)
                     setShouldShow(true); 
                     setButtonShow(false);
@@ -78,7 +78,7 @@ export const Payment = ({ navigation }) => {
     return (
         <View>
             <View>
-                <Header navigation={navigation} />
+                <HeaderDraw navigation={navigation} />
             </View>
             <View style={styles.text}>
                 <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 16 }}>Make your First Payment To Activate your Account</Text>

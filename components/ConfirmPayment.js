@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity,Image } from 'react-native';
-import { Header } from './Header';
+import { HeaderDraw } from './HeaderDraw';
 
 
 const confirm= '../images/confirm.png'
@@ -8,7 +8,7 @@ export const ConfirmPayment = ({ navigation }) => {
     return (
 
         <View>
-            <Header />
+            <HeaderDraw navigation={navigation} />
 
             <View style={styles.LoginFrom}>
                 <View>
