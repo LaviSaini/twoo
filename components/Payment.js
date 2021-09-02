@@ -29,6 +29,7 @@ export const Payment = ({ navigation }) => {
                 .then(function (response) {
                     // handle success
                     console.log(response.data.coins)
+                    
                     setItem(response.data.coins)
                    
                    
@@ -55,6 +56,7 @@ export const Payment = ({ navigation }) => {
                 .then(function (response) {
                     
                     console.log(response.data)
+                   
                     setShouldShow(true); 
                     setButtonShow(false);
                     if (Currrency==='BTC'){
@@ -233,8 +235,7 @@ const styles = StyleSheet.create({
     LoginFrom: {
         width: 319,
         height: 300,
-        left: 35,
-        top: 100,
+        alignSelf:'center',
         backgroundColor: '#E9F1F9',
         elevation: 1,
         borderRadius: 10,

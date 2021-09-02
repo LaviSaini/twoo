@@ -67,8 +67,14 @@ function MyTab() {
         }
   })}
       tabBarOptions={{
+          swipeEnabled: false,
+          tabBarPosition: 'bottom',
           activeTintColor: '#8888f7',
           inactiveTintColor: '#f0f0f0',
+          keyboardHidesTabBar: true,
+          style: {
+            position: 'absolute',
+          },
       }}>
     
       <Tab.Screen name="Payment" component={Payment} options={{ headerShown: false }} />

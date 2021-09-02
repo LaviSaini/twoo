@@ -20,8 +20,10 @@ export const Binarytree = ({ navigation }) => {
                 .then(function (response) {
                     // handle success
                    
-                    console.log(response.data.tree)
+                    console.log(response.data)
                     setTreedata(response.data.tree)
+                    const len = Object.keys(response.data.tree[0]['children']).length
+                    console.log(len);
 
 
 

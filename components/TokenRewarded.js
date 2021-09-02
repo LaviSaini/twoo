@@ -1,10 +1,37 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
-
+import axios from 'axios';
 
 import img1 from '../images/card.png';
 export const TokenRewarded = ({ navigation }) => {
+    const [FirstCount, setFirstCount] = useState('');
+    const [SecondCount, setSecondCount] = useState('');
+    
+
+    useEffect(
+        () => {
+            axios.get('http://18.207.182.108:8085/user/getChildsCount/zlJp6nhMZ7ZgYRa7r8czJKNfQEKuKMkk3t', {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (response) {
+                    // handle success
+                    console.log(response.data)
+                    setFirstCount(response.data.firstLevelChildsCount)
+                    setSecondCount(response.data.secondLevelChildsCount)
+                   
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                 
+                })
+
+        },
+        [],
+    );
     return (
         <>
         
@@ -35,7 +62,7 @@ export const TokenRewarded = ({ navigation }) => {
             <View style={{flex:.6,}}>
                 <View style={{ backgroundColor: '#0F0E32', alignSelf: 'stretch', margin: 5, borderRadius: 10 }}>
                         <Text style={styles.text1}>
-                            Direct Members
+                            Defix Token Rewarded
                         </Text>
                     </View>
                 <ScrollView style={{marginTop:20}}>
@@ -48,19 +75,19 @@ export const TokenRewarded = ({ navigation }) => {
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>{FirstCount}</Text>
                         </View>
                    </View>
                    <View style={styles.scrollscreen}>
                        <View>
-                       <Text style={styles.text2}>User with 50% Refferals</Text>
+                       <Text style={styles.text2}>User with 5% Refferals</Text>
                         </View>
                         <View style={{flexDirection:'row',}}>
                             <Image 
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>{SecondCount}</Text>
                         </View>
                    </View>
                    

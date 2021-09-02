@@ -5,10 +5,7 @@ const img2 = '../images/headbar.png'
 
 export const HeaderDraw = ({ navigation }) => {
     return (
-        <View style={{
-            borderBottomLeftRadius: 15,
-            borderBottomRightRadius: 15
-        }}>
+        <View>
             <ImageBackground source={img1} resizeMode="cover" style={styles.Container}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <View>
@@ -40,7 +37,9 @@ export const HeaderDraw = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
     Container: {
-
+        
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
         justifyContent: "center",
         marginTop: 0,
         height: 50,

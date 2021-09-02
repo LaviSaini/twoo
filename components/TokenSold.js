@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
 
 
@@ -35,32 +35,44 @@ export const TokenSold = ({ navigation }) => {
             <View style={{flex:.6,}}>
                 <View style={{ backgroundColor: '#0F0E32', alignSelf: 'stretch', margin: 5, borderRadius: 10 }}>
                         <Text style={styles.text1}>
-                            Direct Members
+                            Total Defix Token Sold
                         </Text>
                     </View>
                 <ScrollView style={{marginTop:20}}>
                    <View style={styles.scrollscreen}>
                        <View >
-                       <Text style={styles.text2}>Users with 20% Refferals</Text>
+                       <Text style={styles.text2}>Total Tokens</Text>
                         </View>
                         <View style={{flexDirection:'row',}}>
                             <Image 
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>1000</Text>
                         </View>
                    </View>
                    <View style={styles.scrollscreen}>
                        <View>
-                       <Text style={styles.text2}>User with 50% Refferals</Text>
+                       <Text style={styles.text2}>Token Sold</Text>
                         </View>
                         <View style={{flexDirection:'row',}}>
                             <Image 
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>567</Text>
+                        </View>
+                   </View>
+                   <View style={styles.scrollscreen}>
+                       <View>
+                       <Text style={styles.text2}>Tokens Remaining</Text>
+                        </View>
+                        <View style={{flexDirection:'row',}}>
+                            <Image 
+                            style={styles.cardImage}
+                            source={require('../images/Group.png')}/>
+                           
+                            <Text style={styles.cardText}>433</Text>
                         </View>
                    </View>
                    

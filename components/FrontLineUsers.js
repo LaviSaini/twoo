@@ -35,7 +35,7 @@ export const FrontLineUsers = ({ navigation }) => {
             <View style={{flex:.6,}}>
                 <View style={{ backgroundColor: '#0F0E32', alignSelf: 'stretch', margin: 5, borderRadius: 10 }}>
                         <Text style={styles.text1}>
-                            Direct Members
+                            Front Line Users
                         </Text>
                     </View>
                 <ScrollView style={{marginTop:20}}>

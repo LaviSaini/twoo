@@ -1,10 +1,37 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView,  } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
-
-
-import img1 from '../images/card.png';
+import axios from 'axios'
 export const Total_Members = ({ navigation }) => {
+    const [FirstCount, setFirstCount] = useState('');
+    const [SecondCount, setSecondCount] = useState('');
+    const [TotalCount, setTotalCount] = useState('');
+    
+
+    useEffect(
+        () => {
+            axios.get('http://18.207.182.108:8085/user/getChildsCount/zlJp6nhMZ7ZgYRa7r8czJKNfQEKuKMkk3t', {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (response) {
+                    // handle success
+                    setFirstCount(response.data.firstLevelChildsCount)
+                    setSecondCount(response.data.secondLevelChildsCount)
+                    setTotalCount(response.data.totalChildsCount)
+                   
+                   
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                 
+                })
+
+        },
+        [],
+    );
     return (
         <>
         
@@ -50,7 +77,7 @@ export const Total_Members = ({ navigation }) => {
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>{TotalCount}</Text>
                         </View>
                    </View>
                    <View style={styles.scrollscreen}>
@@ -62,7 +89,7 @@ export const Total_Members = ({ navigation }) => {
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>{FirstCount + SecondCount}</Text>
                         </View>
                    </View>
                    <View style={styles.scrollscreen}>
@@ -74,7 +101,7 @@ export const Total_Members = ({ navigation }) => {
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>{FirstCount}</Text>
                         </View>
                    </View>
                    <View style={styles.scrollscreen}>
@@ -86,7 +113,7 @@ export const Total_Members = ({ navigation }) => {
                             style={styles.cardImage}
                             source={require('../images/Group.png')}/>
                            
-                            <Text style={styles.cardText}>4</Text>
+                            <Text style={styles.cardText}>{SecondCount}</Text>
                         </View>
                    </View>
                    
