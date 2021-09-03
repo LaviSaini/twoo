@@ -180,8 +180,9 @@ export const Payment = ({ navigation }) => {
                         </View>
                         <TouchableOpacity
                             style={styles.button}
-                            // onPress={() => { setShouldShow(true); setButtonShow(false) }}
-                           // onPress={() => navigation.navigate('ConfirmPayment')}
+                            //onPress={() => navigation.navigate('Payment', {screen: 'ConfirmPayment'})}
+                             //onPress={() => { setShouldShow(true); setButtonShow(false) }}
+                            onPress={() => navigation.push('ConfirmPayment')}
                         // onPress={() => Alert.alert('Logged In')}
                         >
                             <Text style={{
@@ -234,7 +235,7 @@ const styles = StyleSheet.create({
     },
     LoginFrom: {
         width: 319,
-        height: 300,
+        height: 370,
         alignSelf:'center',
         backgroundColor: '#E9F1F9',
         elevation: 1,

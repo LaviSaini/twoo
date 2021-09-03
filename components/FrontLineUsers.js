@@ -1,10 +1,41 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
+import { DataTable } from 'react-native-paper';
+import axios from 'axios';
+import moment from 'moment';
 
 
 import img1 from '../images/card.png';
 export const FrontLineUsers = ({ navigation }) => {
+        const [treedata, setTreedata] = useState([]);
+        useEffect(
+            () => {
+                axios.get('http://18.207.182.108:8085/user/getTree/zlJp6nhMZ7ZgYRa7r8czJKNfQEKuKMkk3t', {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(function (response) {
+                        // handle success
+                       
+                        console.log(response.data)
+                        setTreedata(response.data.tree[0]['children'])
+                       // const len = Object.keys(response.data.tree[0]['children']).length
+                       
+      
+      
+      
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+      
+                    })
+      
+            },
+            [],
+        );
     return (
         <>
         
@@ -35,35 +66,30 @@ export const FrontLineUsers = ({ navigation }) => {
             <View style={{flex:.6,}}>
                 <View style={{ backgroundColor: '#0F0E32', alignSelf: 'stretch', margin: 5, borderRadius: 10 }}>
                         <Text style={styles.text1}>
-                            Front Line Users
+                            Frontline Users
                         </Text>
                     </View>
                 <ScrollView style={{marginTop:20}}>
-                   <View style={styles.scrollscreen}>
-                       <View >
-                       <Text style={styles.text2}>Users with 20% Refferals</Text>
-                        </View>
-                        <View style={{flexDirection:'row',}}>
-                            <Image 
-                            style={styles.cardImage}
-                            source={require('../images/Group.png')}/>
-                           
-                            <Text style={styles.cardText}>4</Text>
-                        </View>
-                   </View>
-                   <View style={styles.scrollscreen}>
-                       <View>
-                       <Text style={styles.text2}>User with 50% Refferals</Text>
-                        </View>
-                        <View style={{flexDirection:'row',}}>
-                            <Image 
-                            style={styles.cardImage}
-                            source={require('../images/Group.png')}/>
-                           
-                            <Text style={styles.cardText}>4</Text>
-                        </View>
-                   </View>
-                   
+                
+    <DataTable style={{backgroundColor:'white',borderColor:'black',borderWidth:2}}>
+       <DataTable.Header style={{borderBottomColor:'black',borderBottomWidth:1}}>
+         <DataTable.Title style={{padding:5}}>Registration Date</DataTable.Title>
+         <DataTable.Title style={{padding:5}}>Email</DataTable.Title>
+         <DataTable.Title style={{padding:5}}>Name</DataTable.Title>
+         <DataTable.Title style={{padding:5}}>Token Earned</DataTable.Title>
+       </DataTable.Header>
+ 
+        {treedata.map(item =><DataTable.Row>
+         <DataTable.Cell>{moment(parseInt(item.dateCreated)).format("DD/MM/YYYY")}</DataTable.Cell>
+         <DataTable.Cell numeric>{item.email}</DataTable.Cell>
+         <DataTable.Cell numeric>{item.name}</DataTable.Cell>
+         <DataTable.Cell numeric>{item.totalTokens}</DataTable.Cell>
+       </DataTable.Row>)}
+ 
+ 
+       </DataTable>
+   
+   
                 </ScrollView>
             </View>
         
