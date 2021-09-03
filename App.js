@@ -33,7 +33,8 @@ const confimpay = '../images/confirmation.png'
 const refferal = '../images/third-party.png'
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-const Tab = createBottomTabNavigator();
+const Stack1 = createStackNavigator();
+{/*const Tab = createBottomTabNavigator();
 function MyTab() {
   return (
     <Tab.Navigator 
@@ -83,7 +84,7 @@ function MyTab() {
 
     </Tab.Navigator>
   );
-}
+}*/}
 function MyDrawer() {
   return (
     <Drawer.Navigator 
@@ -110,14 +111,22 @@ function MyDrawer() {
       <Drawer.Screen name="Defix Purchased" component={Purchased} options={{ headerShown: false }} />
       <Drawer.Screen name="Front Line Users" component={FrontLineUsers} options={{ headerShown: false }} />
       <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
-      <Drawer.Screen name="Confirm Payment" component={ConfirmPayment} options={{ headerShown: false }} />
-      <Drawer.Screen name="Payment" component={MyTab} options={{ headerShown: false }} />
+      {/*<Drawer.Screen name="Confirm Payment" component={ConfirmPayment} options={{ headerShown: false }} />*/}
+      <Drawer.Screen name="Payment" component={Mystack1} options={{ headerShown: false }} />
       
 
     </Drawer.Navigator>
   )
 }
 
+function Mystack1(){
+  return(
+    <Stack1.Navigator>
+    <Stack1.Screen name="Payment" component={Payment} options={{ headerShown: false }} />
+    <Stack1.Screen name="Confirm Payment" component={ConfirmPayment} options={{ headerShown: false }} />
+    </Stack1.Navigator>
+  )
+}
 function Mystack() {
   return (
     <Stack.Navigator>
@@ -125,8 +134,7 @@ function Mystack() {
       <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Stack.Screen name="Payment" component={MyDrawer} options={{ headerShown: false }} />
-
-    </Stack.Navigator>
+     </Stack.Navigator>
   )
 }
 
@@ -137,6 +145,7 @@ export default function App() {
     <NavigationContainer>
 
       <Mystack />
+
 
     </NavigationContainer>
   );

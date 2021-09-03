@@ -21,6 +21,7 @@
     "axios": "^0.21.1",
     "formik": "^2.2.9",
     "jetifier": "^1.6.8",
+    "moment": "^2.29.1",
     "react": "17.0.1",
     "react-native": "^0.64.2",
     "react-native-country-picker-modal": "^2.0.0",
