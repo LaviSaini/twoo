@@ -1,9 +1,15 @@
 import React from 'react';
 import { View, Text, ImageBackground, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import {useSelector,useDispatch} from "react-redux";
+import {logout} from "../redux/auth/AuthActions"
 import img1 from '../images/Drawerback.png'
 const img2 = '../images/headbar.png'
 
 export const HeaderDraw = ({ navigation }) => {
+
+    const dispatch = useDispatch();
+
+
     return (
         <View>
             <ImageBackground source={img1} resizeMode="cover" style={styles.Container}>
@@ -18,17 +24,10 @@ export const HeaderDraw = ({ navigation }) => {
                     </View>
                     <View style={styles.buttonCont}>
                         <TouchableOpacity style={{ marginRight: 10 }}
-                            onPress={() => navigation.navigate('Signup')}
+                            onPress={() => dispatch(logout())}
                         >
-                            <Text style={styles.buttontext}>Signup</Text>
+                            <Text style={styles.buttontext}>Logout</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('Login')}
-                        >
-                            <Text style={styles.buttontext}>Signin</Text>
-                        </TouchableOpacity>
-
-
                     </View>
                 </View>
             </ImageBackground>

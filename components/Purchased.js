@@ -1,10 +1,16 @@
 import React,{useState,useEffect} from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, StatusBar } from 'react-native';
+import {useSelector} from "react-redux";
 import { HeaderDraw } from './HeaderDraw';
 import axios from 'axios';
 
 import img1 from '../images/card.png';
 export const Purchased = ({ navigation }) => {
+
+    const {user} = useSelector(state => state.auth)
+
+    // console.warn("auth",auth);
+
     const [TotalEarning, setTotalEarning] = useState('');
     const [Refferal, setRefferal] = useState('');
     const [Regis,setRegis] = useState('');
@@ -13,7 +19,7 @@ export const Purchased = ({ navigation }) => {
 
     useEffect(
         () => {
-            axios.get('http://18.207.182.108:8085/user/getEarning/zlJp6nhMZ7ZgYRa7r8czJKNfQEKuKMkk3t', {
+            axios.get(`http://18.207.182.108:8085/user/getEarning/${user.userData.id}`, {
                 headers: {
                     "Content-Type": "application/json"
                 }

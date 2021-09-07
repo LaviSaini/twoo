@@ -182,7 +182,7 @@ export const Payment = ({ navigation }) => {
                             style={styles.button}
                             //onPress={() => navigation.navigate('Payment', {screen: 'ConfirmPayment'})}
                              //onPress={() => { setShouldShow(true); setButtonShow(false) }}
-                            onPress={() => navigation.push('ConfirmPayment')}
+                            onPress={() => navigation.navigate('ConfirmPayment')}
                         // onPress={() => Alert.alert('Logged In')}
                         >
                             <Text style={{
@@ -236,6 +236,7 @@ const styles = StyleSheet.create({
     LoginFrom: {
         width: 319,
         height: 370,
+        top:80,
         alignSelf:'center',
         backgroundColor: '#E9F1F9',
         elevation: 1,

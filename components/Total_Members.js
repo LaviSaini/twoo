@@ -1,8 +1,10 @@
 import React,{useEffect,useState} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView,  } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
+import {useSelector} from "react-redux";
 import axios from 'axios'
 export const Total_Members = ({ navigation }) => {
+    const {user} = useSelector(state => state.auth)
     const [FirstCount, setFirstCount] = useState('');
     const [SecondCount, setSecondCount] = useState('');
     const [TotalCount, setTotalCount] = useState('');
@@ -10,7 +12,7 @@ export const Total_Members = ({ navigation }) => {
 
     useEffect(
         () => {
-            axios.get('http://18.207.182.108:8085/user/getChildsCount/zlJp6nhMZ7ZgYRa7r8czJKNfQEKuKMkk3t', {
+            axios.get(`http://18.207.182.108:8085/user/getChildsCount/${user.userData.id}`, {
                 headers: {
                     "Content-Type": "application/json"
                 }

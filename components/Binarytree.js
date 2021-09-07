@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
 import TreeView from 'react-native-final-tree-view';
+import {useSelector} from "react-redux";
 import axios from 'axios';
 
 
@@ -9,10 +10,11 @@ import img1 from '../images/card.png';
 
 
 export const Binarytree = ({ navigation }) => {
+    const {user} = useSelector(state => state.auth)
     const [treedata, setTreedata] = useState([]);
     useEffect(
         () => {
-            axios.get('http://18.207.182.108:8085/user/getTree/zlJp6nhMZ7ZgYRa7r8czJKNfQEKuKMkk3t', {
+            axios.get(`http://18.207.182.108:8085/user/getTree/${user.userData.id}`, {
                 headers: {
                     "Content-Type": "application/json"
                 }

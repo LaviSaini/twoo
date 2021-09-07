@@ -7,7 +7,7 @@ import { HeaderBackground } from '@react-navigation/elements';
 
 
 export const RefferalScreen = ({ navigation }) => {
-    const [rfCode, setrfcode] = useState('')
+    const [rfCode, setrfcode] = useState('1234')
     const writeToClipboard = () => {
         Clipboard.setString(rfCode)
         ToastAndroid.show("Copied", ToastAndroid.SHORT)

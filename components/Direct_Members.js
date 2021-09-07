@@ -1,17 +1,19 @@
 import React,{useState,useEffect} from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
+import {useSelector} from "react-redux";
 import axios from 'axios';
 
 import img1 from '../images/card.png';
 export const Direct_Members = ({ navigation }) => {
+    const {user} = useSelector(state => state.auth)
     const [FirstCount, setFirstCount] = useState('');
     const [SecondCount, setSecondCount] = useState('');
     
 
     useEffect(
         () => {
-            axios.get('http://18.207.182.108:8085/user/getChildsCount/zlJp6nhMZ7ZgYRa7r8czJKNfQEKuKMkk3t', {
+            axios.get(`http://18.207.182.108:8085/user/getChildsCount/${user.userData.id}`, {
                 headers: {
                     "Content-Type": "application/json"
                 }

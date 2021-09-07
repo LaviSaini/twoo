@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import {useDispatch} from "react-redux";
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, Alert } from 'react-native';
 import { Header } from './Header';
 import axios from 'axios'
 
+import {login} from "../redux/auth/AuthActions"
 
 const email = '../images/email.png'
 const pwd = '../images/pwd.png'
@@ -16,6 +18,9 @@ const hidden = '../images/visibility.png'
 
 
 export const Login = ({ navigation }) => {
+
+    const dispatch = useDispatch();
+
     const [Email, setemail] = useState("");
     const [emailError, setEmailError] = useState("");
     const [password, setpassword] = useState("");
@@ -24,52 +29,39 @@ export const Login = ({ navigation }) => {
 
 
 
-    const login = () => {
-        //const API= 'http://18.207.182.108:8085/user/login'
-        //  const payload = { email:"user1@gmail.com", password:"1234" };
-        if (Email != '' && password != '') {
+    const handleLogin = () => {
+       
+        const errors = [];
 
-            axios.post('http://18.207.182.108:8085/user/login',
-                {
-                    email: Email,
-                    password: password
-                }, {
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-            })
-                .then(function (response) {
-                    console.log(response.data);
-                    // console.warn(response.data.message);
-                    if (response.data.success) {
-                        navigation.push('Payment')
-                    }
+        if (Email === "") {
+        errors.push(1);
+        }
+        if (password === "") {
+         errors.push(1);
+        }
 
-                })
-                .catch(function (error) {
-                    console.log({Email})
-                    console.log({password})
-                    console.log(error.response.data);
-                    alert("No User Found")
-                });
-
-        };
+      
 
         
 
-        if (Email != '') {
-            setEmailError('');
-        } else {
-            setEmailError('Hey! email should not be Empty');
+         if (Email != '') {
+             setEmailError('');
+          } else {
+             setEmailError('Hey! email should not be Empty');
 
         }
 
-        if (password != '') {
-            setpasswordError('');
+         if (password != '') {
+             setpasswordError('');
 
-        } else {
-            setpasswordError('Password should not Empty')
+          } else {
+             setpasswordError('Password should not Empty')
+        
+          }
+        if (errors.length === 0) {
+            dispatch(login(Email,password))
         }
+
     }
     return (
         <View>
@@ -149,9 +141,7 @@ export const Login = ({ navigation }) => {
 
                 <View style={styles.button}>
                     <TouchableOpacity
-                        // onPress={()=>navigation.navigate(Payment)}
-                        onPress={() => login()}
-                    // onPress={() => Alert.alert('Logged In')}
+                      onPress = {handleLogin}
                     >
                         <Text style={{
                             textAlign: 'center',
@@ -178,7 +168,7 @@ export const Login = ({ navigation }) => {
             </View>
             <View style={{ flexDirection: 'row', marginTop: 150, justifyContent: 'center' }}>
                 <Text style={styles.text}>New User ?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('ConfirmPayment')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
                     <Text style={{ color: '#0D5EBD', fontSize: 16, marginLeft: 10 }}>
                         Register
                     </Text>

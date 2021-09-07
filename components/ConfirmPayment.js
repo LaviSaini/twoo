@@ -47,7 +47,7 @@ export const ConfirmPayment = ({ navigation }) => {
                 </View>
                 <View style={styles.button}>
                     <TouchableOpacity
-                            onPress={() => navigation.navigate('RefferalScreen')}
+                            onPress={() => navigation.navigate('Refferal')}
                     // onPress={() => Alert.alert('Logged In')}
                     >
                         <Text style={{
