@@ -23,7 +23,7 @@ export const Signup = ({ navigation }) => {
     const [Phone, setPhone] = useState('');
     const [errorPhone, seterrorPhone] = useState('');
     const [selectedCurrency, setSelectedCurrency] = useState('');
-    const [Currrency,setCurrency] = useState('');
+    const [Currrency, setCurrency] = useState('');
     const [errorCurrency, seterrorCurrency] = useState('');
     const [countryCode, setCountryCode] = useState("");
     const [errorcountryCode, seterrorCountryCode] = useState("");
@@ -87,7 +87,7 @@ export const Signup = ({ navigation }) => {
         }
         console.log(Currrency)
         if (errors.length === 0) {
-           
+
             axios.post('http://18.207.182.108:8085/user/register',
                 {
 
@@ -133,7 +133,7 @@ export const Signup = ({ navigation }) => {
 
 
     }
-    const [Item,setItem] = useState([])
+    const [Item, setItem] = useState([])
     useEffect(
         () => {
             axios.get('http://18.207.182.108:8085/user/getAllCoins', {
@@ -144,8 +144,8 @@ export const Signup = ({ navigation }) => {
                 .then(function (response) {
                     // handle success
                     console.log(response.data.coins)
-                     setItem(response.data.coins)
-                    
+                    setItem(response.data.coins)
+
                 })
                 .catch(function (error) {
                     // handle error
@@ -166,7 +166,7 @@ export const Signup = ({ navigation }) => {
             <View>
                 <Text style={styles.signtext}>Sign Up</Text>
             </View>
-          {/*  <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+            {/*  <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                 <Image
                     style={styles.fbg}
                     source={require(gogle)} />
@@ -174,7 +174,7 @@ export const Signup = ({ navigation }) => {
                     style={styles.fbg}
                     source={require(fb)} />
     </View>*/}
-            <View style={{ alignSelf:'center'}}>
+            <View style={{ alignSelf: 'center' }}>
                 <Text style={styles.text}>or register with Email</Text>
             </View>
             <View style={styles.signform}>
@@ -238,69 +238,69 @@ export const Signup = ({ navigation }) => {
                     </View>
                     <Text style={{ color: 'red', textAlign: 'left' }}>{errorcountryCode}</Text>
                 </View>
-                <View style={{flexGrow:1,justifyContent:'center'}}>
-                <View style={styles.forms}>
-                    <Image source={require(currency)} />
-                    <View >
-                        <Picker
-                            style={styles.formInput}
-                            selectedValue={selectedCurrency}
+                <View style={{ flexGrow: 1, justifyContent: 'center' }}>
+                    <View style={styles.forms}>
+                        <Image source={require(currency)} />
+                        <View >
+                            <Picker
+                                style={styles.formInput}
+                                selectedValue={selectedCurrency}
 
-                            onValueChange={(e) => {setCurrency(e);setSelectedCurrency(e)}}>
-                              {
-                                  Item.map(e => <Picker.Item label={e.label} value={e.coin} key={e.coin} />)
-                              }
-                            
-                        </Picker>
+                                onValueChange={(e) => { setCurrency(e); setSelectedCurrency(e) }}>
+                                {
+                                    Item.map(e => <Picker.Item label={e.label} value={e.coin} key={e.coin} />)
+                                }
+
+                            </Picker>
+                        </View>
+                    </View>
+                    <Text style={{ color: 'red', textAlign: 'left' }}>{errorCurrency}</Text>
+                    <View style={styles.forms}>
+                        <Image source={require(pwd)} />
+                        <TextInput
+                            style={styles.formInput}
+                            placeholder="Enter your password"
+                            placeholderTextColor="black"
+                            secureTextEntry={true}
+                            onChangeText={(text) => setPassword(text)}
+                            value={password}
+                        />
+                    </View>
+                    <View>
+                        <Text style={{ color: 'red', textAlign: 'left' }}>{errorPassword}</Text>
+                    </View>
+
+                    <View style={styles.forms}>
+                        <Image source={require(pwd)} />
+
+                        <TextInput
+                            style={styles.formInput}
+                            placeholder="Confirm Password"
+                            secureTextEntry={true}
+                            placeholderTextColor="black"
+                            onChangeText={(text) => setconfirmPassword(text)}
+                        />
+                    </View>
+                    <View>
+                        <Text style={{ color: 'red', textAlign: 'left' }}>{errorconfirmPassword}</Text>
+                    </View>
+
+                    <View style={styles.button}>
+                        <TouchableOpacity
+                            onPress={() => regis()}
+                        >
+                            <Text style={{
+                                textAlign: 'center',
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                                fontFamily: 'arial',
+                                color: 'white',
+                                padding: 10
+
+                            }}>SIGN UP</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={{ color: 'red', textAlign: 'left' }}>{errorCurrency}</Text>
-                <View style={styles.forms}>
-                    <Image source={require(pwd)} />
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder="Enter your password"
-                        placeholderTextColor="black"
-                        secureTextEntry = {true}
-                        onChangeText={(text) => setPassword(text)}
-                        value={password}
-                    />
-                </View>
-                <View>
-                    <Text style={{ color: 'red', textAlign: 'left' }}>{errorPassword}</Text>
-                </View>
-
-                <View style={styles.forms}>
-                    <Image source={require(pwd)} />
-
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder="Confirm Password"
-                        secureTextEntry = {true}
-                        placeholderTextColor="black"
-                        onChangeText={(text) => setconfirmPassword(text)}
-                    />
-                </View>
-                <View>
-                    <Text style={{ color: 'red', textAlign: 'left' }}>{errorconfirmPassword}</Text>
-                </View>
-
-                <View style={styles.button}>
-                    <TouchableOpacity
-                        onPress={() => regis()}
-                    >
-                        <Text style={{
-                            textAlign: 'center',
-                            fontSize: 20,
-                            fontWeight: 'bold',
-                            fontFamily: 'arial',
-                            color: 'white',
-                            padding: 10
-
-                        }}>SIGN UP</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
             </View>
         </View>
 
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
     },
     forms: {
         flexDirection: 'row', borderBottomColor: 'black',
-        borderBottomWidth: 0.5, alignItems: 'center'
+        borderBottomWidth: 1, alignItems: 'center', elevation: 1
     },
     fbg: {
         height: 40,
@@ -344,14 +344,14 @@ const styles = StyleSheet.create({
     signform: {
 
         margin: 10,
-        alignSelf:'stretch',
+        alignSelf: 'stretch',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E9F1F9',
-        paddingBottom:10,
+        paddingBottom: 10,
         elevation: 1,
         borderRadius: 10,
-        borderWidth: 0.5,
+        borderWidth: 2,
         borderColor: 'rgba(11, 88, 159, 0.35)'
 
     },
@@ -370,6 +370,6 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#2D2D6D', borderRadius: 10,
         alignItems: 'center',
-        marginBottom:5
+        marginBottom: 5
     },
 })

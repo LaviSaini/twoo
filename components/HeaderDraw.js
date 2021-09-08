@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import {useSelector,useDispatch} from "react-redux";
-import {logout} from "../redux/auth/AuthActions"
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/auth/AuthActions"
 import img1 from '../images/Drawerback.png'
 const img2 = '../images/headbar.png'
 
@@ -36,7 +36,7 @@ export const HeaderDraw = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
     Container: {
-        
+
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30,
         justifyContent: "center",

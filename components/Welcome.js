@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity,Pressable } from 'react-native';
+import { View, StyleSheet, Text, Image, TouchableOpacity, Pressable } from 'react-native';
 
 
 const img1 = '../images/mainImage.png'
 const img2 = '../images/signup-bg.png'
-export const Welcome = ({navigation}) => {
+export const Welcome = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View >
@@ -27,7 +27,7 @@ export const Welcome = ({navigation}) => {
             </View>
             <View style={styles.button}>
                 <Pressable
-                 onPress={() =>navigation.navigate('Signup')}
+                    onPress={() => navigation.navigate('Signup')}
                 >
                     <Text style={{
                         textAlign: 'center',
@@ -43,7 +43,7 @@ export const Welcome = ({navigation}) => {
 
             <View style={styles.button1}>
                 <Pressable
-                onPress={() =>navigation.navigate('Login')}>
+                    onPress={() => navigation.navigate('Login')}>
                     <Text style={{
                         textAlign: 'center',
                         fontSize: 20,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         marginLeft: 2,
         marginRight: 2,
         marginTop: 1,
-        height:'100%',
+        height: '100%',
         backgroundColor: 'white'
     },
     images: {
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
         height: 200,
-        width: 200  
+        width: 200
     },
     text: {
 
@@ -100,15 +100,15 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#1671C6', borderRadius: 30,
-        alignItems:'center',
-        margin:10
-        
+        alignItems: 'center',
+        margin: 10
+
 
     },
     button1: {
         backgroundColor: '#2F2847', borderRadius: 30,
-    alignItems:'center',
-    margin:10
+        alignItems: 'center',
+        margin: 10
 
     }
 

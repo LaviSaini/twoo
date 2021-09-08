@@ -16,8 +16,8 @@ export const Payment = ({ navigation }) => {
     const [Currrency, setCurrency] = useState('');
     const [Item, setItem] = useState([]);
     const [Tokens, setToken] = useState();
-    const [Pay,setpay] = useState();
-    const [address,setAddress] = useState();
+    const [Pay, setpay] = useState();
+    const [address, setAddress] = useState();
 
     useEffect(
         () => {
@@ -29,16 +29,16 @@ export const Payment = ({ navigation }) => {
                 .then(function (response) {
                     // handle success
                     console.log(response.data.coins)
-                    
+
                     setItem(response.data.coins)
-                   
-                   
+
+
 
                 })
                 .catch(function (error) {
                     // handle error
                     console.log(error);
-                 
+
                 })
 
         },
@@ -54,15 +54,15 @@ export const Payment = ({ navigation }) => {
                 }
             })
                 .then(function (response) {
-                    
+
                     console.log(response.data)
-                   
-                    setShouldShow(true); 
+
+                    setShouldShow(true);
                     setButtonShow(false);
-                    if (Currrency==='BTC'){
+                    if (Currrency === 'BTC') {
                         setpay(response.data.btcExchangeRate)
                         setAddress(response.data.btcAddress)
-                    }else{
+                    } else {
                         setpay(response.data.ethExchangeRate)
                         setAddress(response.data.ethAddress)
                     }
@@ -78,7 +78,7 @@ export const Payment = ({ navigation }) => {
         }
     }
     return (
-        <View style={{flex:1}}>
+        <View style={{ flex: 1 }}>
             <View>
                 <HeaderDraw navigation={navigation} />
             </View>
@@ -86,157 +86,157 @@ export const Payment = ({ navigation }) => {
                 <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 16 }}>Make your First Payment To Activate your Account</Text>
                 <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14, }}>Pay to start in Two-Tier Referral Program</Text>
             </View>
-            <View style={{flexGrow:1,justifyContent:'center'}}>
-            <View style={styles.LoginFrom}>
-                <View style={{
-                    marginLeft: 5, marginRight: 5,
-                    flexDirection: 'row', borderBottomColor: 'black',
-                    borderBottomWidth: 0.5,
-                }}>
-                    
-                    <Image source={require(currency)} />
-                    <View >
-                        <Picker
-                            style={styles.formInput}
-                            selectedValue={selectedCurrency}
+            <View style={{ flexGrow: 1, justifyContent: 'center' }}>
+                <View style={styles.LoginFrom}>
+                    <View style={{
+                        marginLeft: 5, marginRight: 5,
+                        flexDirection: 'row', borderBottomColor: 'black',
+                        borderBottomWidth: 0.5,
+                    }}>
 
-                            onValueChange={(e) => { setCurrency(e); setSelectedCurrency(e) }}>
-                            {
-                                Item.map(e => <Picker.Item label={e.label} value={e.coin} key={e.coin} />)
-                            }
+                        <Image source={require(currency)} />
+                        <View >
+                            <Picker
+                                style={styles.formInput}
+                                selectedValue={selectedCurrency}
 
-                        </Picker>
+                                onValueChange={(e) => { setCurrency(e); setSelectedCurrency(e) }}>
+                                {
+                                    Item.map(e => <Picker.Item label={e.label} value={e.coin} key={e.coin} />)
+                                }
+
+                            </Picker>
+                        </View>
+
+
+                    </View>
+                    <View style={{
+                        marginLeft: 5, marginRight: 5,
+                        flexDirection: 'row', borderBottomColor: 'black',
+                        borderBottomWidth: 0.5,
+                    }}>
+                        <Image source={require(token)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
+                        <TextInput
+                            // style={styles.formInput}
+                            style={{ paddingLeft: 50, width: "100%", color: 'black' }}
+                            placeholder=" Enter Tokens"
+                            placeholderTextColor="black"
+                            onChangeText={setToken}
+                        />
+
+
                     </View>
 
+                    {shouldShow ? (
+                        <View>
+                            <View style={{
+                                marginLeft: 5, marginRight: 5,
+                                flexDirection: 'row', borderBottomColor: 'black',
+                                borderBottomWidth: 0.5,
+                            }}>
+                                <Image source={require(amount)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
+                                <TextInput
+                                    // style={styles.formInput}
+                                    style={{ paddingLeft: 50, width: "100%", color: 'black' }}
+                                    placeholder="Pay Coins"
+                                    placeholderTextColor="black"
+                                    value={Pay}
+                                />
 
+
+                            </View>
+
+                            <View style={{
+                                marginLeft: 5, marginRight: 5,
+                                flexDirection: 'row', borderBottomColor: 'black',
+                                borderBottomWidth: 0.5,
+                            }}>
+                                <Image source={require(amount)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
+                                <TextInput
+                                    // style={styles.formInput}
+                                    style={{ paddingLeft: 50, width: "100%", color: 'black' }}
+                                    placeholder="Your ETH Payment Address"
+                                    placeholderTextColor="black"
+                                    value={address}
+                                />
+
+
+                            </View>
+
+
+                            <View style={{
+                                marginLeft: 5, marginRight: 5,
+                                flexDirection: 'row', borderBottomColor: 'black',
+                                borderBottomWidth: 0.5,
+                            }}>
+                                <Image source={require(id)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
+                                <TextInput
+                                    // style={styles.formInput}
+                                    style={{ paddingLeft: 50, width: "100%" }}
+                                    placeholder="Transaction Id"
+                                    placeholderTextColor="black"
+                                />
+
+
+                            </View>
+                            <TouchableOpacity
+                                style={styles.button}
+                                //onPress={() => navigation.navigate('Payment', {screen: 'ConfirmPayment'})}
+                                //onPress={() => { setShouldShow(true); setButtonShow(false) }}
+                                onPress={() => navigation.navigate('ConfirmPayment')}
+                            // onPress={() => Alert.alert('Logged In')}
+                            >
+                                <Text style={{
+                                    textAlign: 'center',
+                                    fontSize: 20,
+                                    fontWeight: 'bold',
+                                    fontFamily: 'arial',
+                                    color: 'white',
+                                    padding: 10,
+                                    paddingLeft: 50,
+                                    paddingRight: 50
+
+                                }}>Pay now</Text>
+                            </TouchableOpacity>
+                        </View>) : null}
+
+                    <View style={styles.button}>
+                        {buttonShow &&
+                            <TouchableOpacity
+                                //  onPress={() => pay()}
+                                onPress={() => pay()}
+                            // onPress={() => navigation.navigate('Payment')}
+                            // onPress={() => Alert.alert('Logged In')}
+                            >
+                                <Text style={{
+                                    textAlign: 'center',
+                                    fontSize: 20,
+                                    fontWeight: 'bold',
+                                    fontFamily: 'arial',
+                                    color: 'white',
+                                    padding: 10,
+                                    paddingLeft: 50,
+                                    paddingRight: 50
+
+                                }}>Calculate</Text>
+                            </TouchableOpacity>
+                        }
+                    </View>
                 </View>
-                <View style={{
-                    marginLeft: 5, marginRight: 5,
-                    flexDirection: 'row', borderBottomColor: 'black',
-                    borderBottomWidth: 0.5,
-                }}>
-                    <Image source={require(token)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
-                    <TextInput
-                        // style={styles.formInput}
-                        style={{ paddingLeft: 50, width: "100%" ,color:'black'}}
-                        placeholder=" Enter Tokens"
-                        placeholderTextColor="black"
-                        onChangeText={setToken}
-                    />
-
-
-                </View>
-                
-                {shouldShow ? (
-                    <View>
-                        <View style={{
-                            marginLeft: 5, marginRight: 5,
-                            flexDirection: 'row', borderBottomColor: 'black',
-                            borderBottomWidth: 0.5,
-                        }}>
-                            <Image source={require(amount)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
-                            <TextInput
-                                // style={styles.formInput}
-                                style={{ paddingLeft: 50, width: "100%",color:'black' }}
-                                placeholder="Pay Coins"
-                                placeholderTextColor="black"
-                                value={Pay}
-                            />
-
-
-                        </View>
-
-                        <View style={{
-                            marginLeft: 5, marginRight: 5,
-                            flexDirection: 'row', borderBottomColor: 'black',
-                            borderBottomWidth: 0.5,
-                        }}>
-                            <Image source={require(amount)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
-                            <TextInput
-                                // style={styles.formInput}
-                                style={{ paddingLeft: 50, width: "100%", color:'black'}}
-                                placeholder="Your ETH Payment Address"
-                                placeholderTextColor="black"
-                                value={address}
-                            />
-
-
-                        </View>
-
-
-                        <View style={{
-                            marginLeft: 5, marginRight: 5,
-                            flexDirection: 'row', borderBottomColor: 'black',
-                            borderBottomWidth: 0.5,
-                        }}>
-                            <Image source={require(id)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
-                            <TextInput
-                                // style={styles.formInput}
-                                style={{ paddingLeft: 50, width: "100%" }}
-                                placeholder="Transaction Id"
-                                placeholderTextColor="black"
-                            />
-
-
-                        </View>
-                        <TouchableOpacity
-                            style={styles.button}
-                            //onPress={() => navigation.navigate('Payment', {screen: 'ConfirmPayment'})}
-                             //onPress={() => { setShouldShow(true); setButtonShow(false) }}
-                            onPress={() => navigation.navigate('ConfirmPayment')}
-                        // onPress={() => Alert.alert('Logged In')}
-                        >
-                            <Text style={{
-                                textAlign: 'center',
-                                fontSize: 20,
-                                fontWeight: 'bold',
-                                fontFamily: 'arial',
-                                color: 'white',
-                                padding: 10,
-                                paddingLeft: 50,
-                                paddingRight: 50
-
-                            }}>Pay now</Text>
-                        </TouchableOpacity>
-                    </View>) : null}
-                
-                <View style={styles.button}>
-                    {buttonShow &&
-                        <TouchableOpacity
-                          //  onPress={() => pay()}
-                        onPress={() =>pay() }
-                        // onPress={() => navigation.navigate('Payment')}
-                        // onPress={() => Alert.alert('Logged In')}
-                        >
-                            <Text style={{
-                                textAlign: 'center',
-                                fontSize: 20,
-                                fontWeight: 'bold',
-                                fontFamily: 'arial',
-                                color: 'white',
-                                padding: 10,
-                                paddingLeft: 50,
-                                paddingRight: 50
-
-                            }}>Calculate</Text>
-                        </TouchableOpacity>
-                    }
-                </View>
-            </View>
             </View>
         </View>
     )
 }
 const styles = StyleSheet.create({
     text: {
-       textAlign:'center',
+        textAlign: 'center',
         fontFamily: 'Palanquin',
         fontWeight: 'normal',
         color: '#000000'
     },
     LoginFrom: {
-        padding:10,
-        alignSelf:'center',
+        padding: 10,
+        alignSelf: 'center',
         //justifyContent:'center',
         backgroundColor: '#E9F1F9',
         elevation: 1,
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#2D2D6D', borderRadius: 30,
         alignItems: 'center',
-        marginTop:5
+        marginTop: 5
 
 
 

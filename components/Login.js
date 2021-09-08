@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, Alert } from 'react-native';
 import { Header } from './Header';
 import axios from 'axios'
 
-import {login} from "../redux/auth/AuthActions"
+import { login } from "../redux/auth/AuthActions"
 
 const email = '../images/email.png'
 const pwd = '../images/pwd.png'
@@ -30,36 +30,36 @@ export const Login = ({ navigation }) => {
 
 
     const handleLogin = () => {
-       
+
         const errors = [];
 
         if (Email === "") {
-        errors.push(1);
+            errors.push(1);
         }
         if (password === "") {
-         errors.push(1);
+            errors.push(1);
         }
 
-      
 
-        
 
-         if (Email != '') {
-             setEmailError('');
-          } else {
-             setEmailError('Hey! email should not be Empty');
+
+
+        if (Email != '') {
+            setEmailError('');
+        } else {
+            setEmailError('Hey! email should not be Empty');
 
         }
 
-         if (password != '') {
-             setpasswordError('');
+        if (password != '') {
+            setpasswordError('');
 
-          } else {
-             setpasswordError('Password should not Empty')
-        
-          }
+        } else {
+            setpasswordError('Password should not Empty')
+
+        }
         if (errors.length === 0) {
-            dispatch(login(Email,password))
+            dispatch(login(Email, password))
         }
 
     }
@@ -102,7 +102,7 @@ export const Login = ({ navigation }) => {
                         <Image source={require(pwd)} style={{ marginTop: 25, marginLeft: 5, marginRight: 5, padding: 5, position: "absolute", left: 0 }} />
 
                         <TextInput
-                            style={{ paddingLeft: 30, width: "100%",color:'black' }}
+                            style={{ paddingLeft: 30, width: "100%", color: 'black' }}
                             placeholder="Enter your password"
                             placeholderTextColor="black"
                             secureTextEntry={eyeOpen ? false : true}
@@ -133,14 +133,14 @@ export const Login = ({ navigation }) => {
                     <Text style={{ color: 'red', textAlign: 'left' }}>{passwordError}</Text>
                 </View>
                 <TouchableOpacity>
-                    <Text style={{ color: '#0D5EBD', textAlign:'left', fontSize: 13 }}>
+                    <Text style={{ color: '#0D5EBD', textAlign: 'left', fontSize: 13 }}>
                         Forgot Password?
                     </Text>
                 </TouchableOpacity>
 
                 <View style={styles.button}>
                     <TouchableOpacity
-                      onPress = {handleLogin}
+                        onPress={handleLogin}
                     >
                         <Text style={{
                             textAlign: 'center',
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E9F1F9',
         elevation: 1,
         borderRadius: 10,
-        borderWidth: 0.5,
+        borderWidth: 2,
         borderColor: 'rgba(11, 88, 159, 0.35)',
 
     },

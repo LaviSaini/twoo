@@ -1,14 +1,14 @@
-import React,{useEffect,useState} from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView,  } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import axios from 'axios'
 export const Total_Members = ({ navigation }) => {
-    const {user} = useSelector(state => state.auth)
+    const { user } = useSelector(state => state.auth)
     const [FirstCount, setFirstCount] = useState('');
     const [SecondCount, setSecondCount] = useState('');
     const [TotalCount, setTotalCount] = useState('');
-    
+
 
     useEffect(
         () => {
@@ -22,13 +22,13 @@ export const Total_Members = ({ navigation }) => {
                     setFirstCount(response.data.firstLevelChildsCount)
                     setSecondCount(response.data.secondLevelChildsCount)
                     setTotalCount(response.data.totalChildsCount)
-                   
-                   
+
+
                 })
                 .catch(function (error) {
                     // handle error
                     console.log(error);
-                 
+
                 })
 
         },
@@ -36,8 +36,8 @@ export const Total_Members = ({ navigation }) => {
     );
     return (
         <>
-        
-            <View style={{flex:.4,}}>
+
+            <View style={{ flex: .4, }}>
                 <View>
                     <HeaderDraw navigation={navigation} />
                 </View>
@@ -48,81 +48,81 @@ export const Total_Members = ({ navigation }) => {
                             height: '60%',
                             width: '100%',
                             borderRadius: 20,
-                            alignItems:'center',
+                            alignItems: 'center',
                         }}
                         source={require('../images/bitimage.png')} />
-                    <View style={{ backgroundColor: '#FFFFFF', alignSelf: 'stretch', marginTop:20,margin: 5, borderRadius: 10 }}>
+                    <View style={{ backgroundColor: '#FFFFFF', alignSelf: 'stretch', marginTop: 20, margin: 5, borderRadius: 10 }}>
                         <Text style={styles.text}>
                             Defix Buy
                         </Text>
                     </View>
 
 
-                    
+
                 </View>
             </View>
-            <View style={{flex:.6,}}>
+            <View style={{ flex: .6, }}>
                 <View style={{ backgroundColor: '#0F0E32', alignSelf: 'stretch', margin: 5, borderRadius: 10 }}>
-                       <TouchableOpacity onPress={()=>navigation.push('')}>
+                    <TouchableOpacity onPress={() => navigation.push('')}>
                         <Text style={styles.text1}>
                             Total Members
                         </Text>
-                        </TouchableOpacity>
-                    </View>
-                <ScrollView style={{marginTop:20}}>
-                   <View style={styles.scrollscreen}>
-                       <View >
-                       <Text style={styles.text2}>Users in my network</Text>
+                    </TouchableOpacity>
+                </View>
+                <ScrollView style={{ marginTop: 20 }}>
+                    <View style={styles.scrollscreen}>
+                        <View >
+                            <Text style={styles.text2}>Users in my network</Text>
                         </View>
-                        <View style={{flexDirection:'row',}}>
-                            <Image 
-                            style={styles.cardImage}
-                            source={require('../images/Group.png')}/>
-                           
+                        <View style={{ flexDirection: 'row', }}>
+                            <Image
+                                style={styles.cardImage}
+                                source={require('../images/Group.png')} />
+
                             <Text style={styles.cardText}>{TotalCount}</Text>
                         </View>
-                   </View>
-                   <View style={styles.scrollscreen}>
-                       <View>
-                       <Text style={styles.text2}>Refferal Users</Text>
+                    </View>
+                    <View style={styles.scrollscreen}>
+                        <View>
+                            <Text style={styles.text2}>Refferal Users</Text>
                         </View>
-                        <View style={{flexDirection:'row',}}>
-                            <Image 
-                            style={styles.cardImage}
-                            source={require('../images/Group.png')}/>
-                           
+                        <View style={{ flexDirection: 'row', }}>
+                            <Image
+                                style={styles.cardImage}
+                                source={require('../images/Group.png')} />
+
                             <Text style={styles.cardText}>{FirstCount + SecondCount}</Text>
                         </View>
-                   </View>
-                   <View style={styles.scrollscreen}>
-                       <View>
-                       <Text style={styles.text2}>Users with 20% Refferals</Text>
+                    </View>
+                    <View style={styles.scrollscreen}>
+                        <View>
+                            <Text style={styles.text2}>Users with 20% Refferals</Text>
                         </View>
-                        <View style={{flexDirection:'row',}}>
-                            <Image 
-                            style={styles.cardImage}
-                            source={require('../images/Group.png')}/>
-                           
+                        <View style={{ flexDirection: 'row', }}>
+                            <Image
+                                style={styles.cardImage}
+                                source={require('../images/Group.png')} />
+
                             <Text style={styles.cardText}>{FirstCount}</Text>
                         </View>
-                   </View>
-                   <View style={styles.scrollscreen}>
-                       <View>
-                       <Text style={styles.text2}>Users with 5% Refferals</Text>
+                    </View>
+                    <View style={styles.scrollscreen}>
+                        <View>
+                            <Text style={styles.text2}>Users with 5% Refferals</Text>
                         </View>
-                        <View style={{flexDirection:'row',}}>
-                            <Image 
-                            style={styles.cardImage}
-                            source={require('../images/Group.png')}/>
-                           
+                        <View style={{ flexDirection: 'row', }}>
+                            <Image
+                                style={styles.cardImage}
+                                source={require('../images/Group.png')} />
+
                             <Text style={styles.cardText}>{SecondCount}</Text>
                         </View>
-                   </View>
-                   
+                    </View>
+
                 </ScrollView>
             </View>
-        
-</>
+
+        </>
 
     )
 
@@ -172,26 +172,26 @@ const styles = StyleSheet.create({
         marginTop: 10,
         width: '100%',
         height: '20%'
-     },
-     cardImage:{
-            height:30,
-            width:30,
-            margin:10,
-            alignItems:'flex-start',
-            padding:5
-     },
-     cardText:{
-         textAlign:'right',
+    },
+    cardImage: {
+        height: 30,
+        width: 30,
+        margin: 10,
+        alignItems: 'flex-start',
+        padding: 5
+    },
+    cardText: {
+        textAlign: 'right',
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         fontSize: 25,
         color: '#FFFFFF',
-        flexGrow:1,
-        marginTop:8,
-        marginRight:10,
-        marginLeft:10,
-        padding:5
-     },
+        flexGrow: 1,
+        marginTop: 8,
+        marginRight: 10,
+        marginLeft: 10,
+        padding: 5
+    },
     Bgcard2: {
         width: '100%',
         height: '40%'
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         margin: 5,
         borderRadius: 2,
-        padding:15
+        padding: 15
 
 
     }

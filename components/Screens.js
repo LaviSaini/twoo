@@ -39,7 +39,7 @@ const Screens = () => {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-  
+
             if (route.name === 'Payment') {
               iconName = focused ? 'home' : 'home';
             } else if (route.name === 'Refferal') {
@@ -75,19 +75,19 @@ const Screens = () => {
             position: 'absolute',
           },
         }}>
-  
+
         <Tab.Screen name="Payment" component={Payment} options={{ headerShown: false }} />
         <Tab.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
         <Tab.Screen name="Confirm Payment" component={ConfirmPayment} options={{ headerShown: false }} />
-  
+
       </Tab.Navigator>
     );
   }
-  
+
   function MyDrawer() {
     return (
       <Drawer.Navigator
-  
+
         screenOptions={{
           drawerStyle: {
             width: 250,
@@ -99,43 +99,43 @@ const Screens = () => {
             color: '#FFFFFF'
           }
         }}
-  
+
         initialRouteName="Payment">
-  
-  
-  
-  {
-    user.userData.referralCode === null ?  <>
-          <Drawer.Screen name="Payment" component={MyTab} options={{ headerShown: false }} /> 
-          <Drawer.Screen name="ConfirmPayment" component={ConfirmPayment} options={{ headerShown: false }} />
-          <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
+
+
+
+        {
+          user.userData.referralCode === null ? <>
+            <Drawer.Screen name="Payment" component={MyTab} options={{ headerShown: false }} />
+            <Drawer.Screen name="ConfirmPayment" component={ConfirmPayment} options={{ headerShown: false }} />
+            <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
           </>
-    : 
-        
-          
-  
-  <>
-        
-        <Drawer.Screen name="Binary Tree" component={Binarytree} options={{ headerShown: false }} />
-        <Drawer.Screen name="Total Members" component={Total_Members} options={{ headerShown: false }} />
-        <Drawer.Screen name="Direct Members" component={Direct_Members} options={{ headerShown: false }} />
-        <Drawer.Screen name="Active" component={Active} options={{ headerShown: false }} />
-        <Drawer.Screen name="Defix Token Rewarded" component={TokenRewarded} options={{ headerShown: false }} />
-        <Drawer.Screen name="Total Defix Token Sold" component={TokenSold} options={{ headerShown: false }} />
-        <Drawer.Screen name="Defix Purchased" component={Purchased} options={{ headerShown: false }} />
-        <Drawer.Screen name="Front Line Users" component={FrontLineUsers} options={{ headerShown: false }} />
-        <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
-        <Drawer.Screen name="ConfirmPayment" component={ConfirmPayment} options={{ headerShown: false }} />
- </>
-  }
-  
-  
-  
-  
+            :
+
+
+
+            <>
+
+              <Drawer.Screen name="Binary Tree" component={Binarytree} options={{ headerShown: false }} />
+              <Drawer.Screen name="Total Members" component={Total_Members} options={{ headerShown: false }} />
+              <Drawer.Screen name="Direct Members" component={Direct_Members} options={{ headerShown: false }} />
+              <Drawer.Screen name="Active" component={Active} options={{ headerShown: false }} />
+              <Drawer.Screen name="Defix Token Rewarded" component={TokenRewarded} options={{ headerShown: false }} />
+              <Drawer.Screen name="Total Defix Token Sold" component={TokenSold} options={{ headerShown: false }} />
+              <Drawer.Screen name="Defix Purchased" component={Purchased} options={{ headerShown: false }} />
+              <Drawer.Screen name="Front Line Users" component={FrontLineUsers} options={{ headerShown: false }} />
+              <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
+              <Drawer.Screen name="ConfirmPayment" component={ConfirmPayment} options={{ headerShown: false }} />
+            </>
+        }
+
+
+
+
       </Drawer.Navigator>
     )
   }
-  
+
   const DashboardScreens = () => {
     return <>
       <MyDrawer />
@@ -151,7 +151,7 @@ const Screens = () => {
       </Stack.Navigator>
     </>
   }
-  
+
 
 
   return (
