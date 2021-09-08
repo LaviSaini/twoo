@@ -78,14 +78,15 @@ export const Payment = ({ navigation }) => {
         }
     }
     return (
-        <View>
+        <View style={{flex:1}}>
             <View>
                 <HeaderDraw navigation={navigation} />
             </View>
-            <View style={styles.text}>
+            <View >
                 <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 16 }}>Make your First Payment To Activate your Account</Text>
                 <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14, }}>Pay to start in Two-Tier Referral Program</Text>
             </View>
+            <View style={{flexGrow:1,justifyContent:'center'}}>
             <View style={styles.LoginFrom}>
                 <View style={{
                     marginLeft: 5, marginRight: 5,
@@ -117,7 +118,7 @@ export const Payment = ({ navigation }) => {
                     <Image source={require(token)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
                     <TextInput
                         // style={styles.formInput}
-                        style={{ paddingLeft: 50, width: "100%" }}
+                        style={{ paddingLeft: 50, width: "100%" ,color:'black'}}
                         placeholder=" Enter Tokens"
                         placeholderTextColor="black"
                         onChangeText={setToken}
@@ -136,7 +137,7 @@ export const Payment = ({ navigation }) => {
                             <Image source={require(amount)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
                             <TextInput
                                 // style={styles.formInput}
-                                style={{ paddingLeft: 50, width: "100%" }}
+                                style={{ paddingLeft: 50, width: "100%",color:'black' }}
                                 placeholder="Pay Coins"
                                 placeholderTextColor="black"
                                 value={Pay}
@@ -153,7 +154,7 @@ export const Payment = ({ navigation }) => {
                             <Image source={require(amount)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
                             <TextInput
                                 // style={styles.formInput}
-                                style={{ paddingLeft: 50, width: "100%" }}
+                                style={{ paddingLeft: 50, width: "100%", color:'black'}}
                                 placeholder="Your ETH Payment Address"
                                 placeholderTextColor="black"
                                 value={address}
@@ -222,22 +223,21 @@ export const Payment = ({ navigation }) => {
                     }
                 </View>
             </View>
+            </View>
         </View>
     )
 }
 const styles = StyleSheet.create({
     text: {
-        top: 50,
-
+       textAlign:'center',
         fontFamily: 'Palanquin',
         fontWeight: 'normal',
         color: '#000000'
     },
     LoginFrom: {
-        width: 319,
-        height: 370,
-        top:80,
+        padding:10,
         alignSelf:'center',
+        //justifyContent:'center',
         backgroundColor: '#E9F1F9',
         elevation: 1,
         borderRadius: 10,
@@ -253,15 +253,14 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: '300',
-        fontSize: 13,
+        fontSize: 15,
         width: 280,
-        color: '#000000'
+        color: 'black'
     },
     button: {
-        backgroundColor: '#1671C6', borderRadius: 30,
+        backgroundColor: '#2D2D6D', borderRadius: 30,
         alignItems: 'center',
-        margin: 20,
-        marginTop: 30,
+        marginTop:5
 
 
 

@@ -1,8 +1,8 @@
-import {LOGIN_SUCCESS,LOGINI_FAILURE,LOGOUT} from '../types';
+import {LOGIN_SUCCESS,LOGINI_FAILURE,LOGOUT,GETTREEDATA} from '../types';
 
 const initialState = {
     isAuth: false,
-    user: {}
+    user: {},
 }
 
 const AuthReducer= (state = initialState ,action) => {
@@ -19,7 +19,13 @@ const AuthReducer= (state = initialState ,action) => {
         case LOGOUT:
             return {
                 isAuth: false,
+                tree:[],
                 user:  {}
+            }
+        case GETTREEDATA:
+            return{
+                ...state,
+                tree:action.payload
             }
         default:
             return state

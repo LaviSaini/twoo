@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput,ToastAndroid } from 'react-native';
+import {useSelector} from "react-redux"
 import Clipboard from '@react-native-community/clipboard';
 import { HeaderDraw } from './HeaderDraw';
 import { HeaderBackground } from '@react-navigation/elements';
@@ -7,14 +8,20 @@ import { HeaderBackground } from '@react-navigation/elements';
 
 
 export const RefferalScreen = ({ navigation }) => {
-    const [rfCode, setrfcode] = useState('1234')
+
+    const {user} = useSelector(state => state.auth)
+
+    const [rfCode, setrfcode] = useState(user.userData.referralCode)
     const writeToClipboard = () => {
         Clipboard.setString(rfCode)
         ToastAndroid.show("Copied", ToastAndroid.SHORT)
     }
     return (
         <View>
+            <View>
             <HeaderDraw navigation={navigation} />
+            </View>
+            
             <View>
                 <Text style={styles.text}>
                     Below is your referral code to share with your friends.
@@ -99,10 +106,13 @@ const styles = StyleSheet.create({
 
     },
     LoginFrom: {
-        width: 319,
-        height: 360,
-        left: 35,
-        top: 50,
+       // width: 319,
+        //height: 360,
+       // left: 35,
+        //top: 50,
+        alignSelf:'center',
+        alignItems: 'center',
+        //justifyContent: 'center',
         backgroundColor: '#E9F1F9',
         elevation: 1,
         borderRadius: 10,
@@ -119,9 +129,11 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     button: {
-        backgroundColor: '#1671C6', borderRadius: 7,
-        marginTop: 15,
-        marginLeft: 20,
-        marginRight: 20,
+        backgroundColor: '#2D2D6D', borderRadius: 7,
+        alignItems:'center',
+        marginBottom:5
+        //marginTop: 15,
+       // marginLeft: 20,
+        //marginRight: 20,
     },
 })

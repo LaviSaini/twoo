@@ -1,68 +1,74 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity,Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { HeaderDraw } from './HeaderDraw';
 
 
-const confirm= '../images/confirm.png'
+const confirm = '../images/confirm.png'
 export const ConfirmPayment = ({ navigation }) => {
     return (
 
-        <View>
-            <HeaderDraw navigation={navigation} />
 
-            <View style={styles.LoginFrom}>
-                <View>
-                    <Text style={styles.text}>
-                        Your payment is confirmed
-                    </Text>
-                </View>
-                <View style={styles.button}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('RefferalScreen')}
-                    // onPress={() => Alert.alert('Logged In')}
-                    >
-                        <Text style={{
-                            textAlign: 'center',
-                            fontSize: 16,
-                            fontWeight: 'bold',
-                            fontFamily: 'arial',
-                            color: 'white',
-                            padding: 10
+        <View style={{ flex: 1 }}>
+            <View>
+                <HeaderDraw navigation={navigation} />
+            </View>
+            <View style={{ flexGrow: 1, justifyContent: 'center' }}>
 
-                        }}>Click Here To Refresh</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.text}>
-                    <Text style={{fontSize:13,color:'rgba(0, 0, 0, 0.43)'}}>
-                    Your are now eligible for getting sharing address.
-                    </Text>
-                </View>
-                 <View style={{alignItems:'center',padding:10}}>
-                    <Image  source={require(confirm)}/>            
-                    </View>   
+                <View style={styles.LoginFrom}>
+                    <View>
+                        <Text style={styles.text}>
+                            Your payment is confirmed
+                        </Text>
+                    </View>
+                    <View style={styles.button}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('RefferalScreen')}
+                        // onPress={() => Alert.alert('Logged In')}
+                        >
+                            <Text style={{
+                                textAlign: 'center',
+                                fontSize: 16,
+                                fontWeight: 'bold',
+                                fontFamily: 'arial',
+                                color: 'white',
+                                padding: 10
+
+                            }}>Click Here To Refresh</Text>
+                        </TouchableOpacity>
+                    </View>
                     <View style={styles.text}>
-                    <Text style={{fontSize:13,marginLeft:15,color:'rgba(0, 0, 0, 0.43)'}}>
-                    Press next to generate your sharing address
-                    </Text>
-                </View>
-                <View style={styles.button}>
-                    <TouchableOpacity
+                        <Text style={{ fontSize: 13, color: 'rgba(0, 0, 0, 0.43)' }}>
+                            Your are now eligible for getting sharing address.
+                        </Text>
+                    </View>
+                    <View style={{ alignItems: 'center', padding: 10 }}>
+                        <Image source={require(confirm)} />
+                    </View>
+                    <View style={styles.text}>
+                        <Text style={{ fontSize: 13, marginLeft: 15, color: 'rgba(0, 0, 0, 0.43)' }}>
+                            Press next to generate your sharing address
+                        </Text>
+                    </View>
+                    <View style={styles.button}>
+                        <TouchableOpacity
                             onPress={() => navigation.navigate('Refferal')}
-                    // onPress={() => Alert.alert('Logged In')}
-                    >
-                        <Text style={{
-                            textAlign: 'center',
-                            fontSize: 16,
-                            fontWeight: 'bold',
-                            fontFamily: 'arial',
-                            color: 'white',
-                            padding: 10
+                        // onPress={() => Alert.alert('Logged In')}
+                        >
+                            <Text style={{
+                                textAlign: 'center',
+                                fontSize: 16,
+                                fontWeight: 'bold',
+                                fontFamily: 'arial',
+                                color: 'white',
+                                padding: 10
 
-                        }}>Click Here To Refresh</Text>
-                    </TouchableOpacity>
+                            }}>Click Here To Refresh</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </View>
+
     )
 }
 const styles = StyleSheet.create({
@@ -79,14 +85,12 @@ const styles = StyleSheet.create({
 
     },
     LoginFrom: {
-        width: 319,
-        height: 380,
-        left: 35,
-        top: 100,
+        alignSelf: 'center',
+        alignItems: 'center',
         backgroundColor: '#E9F1F9',
         elevation: 1,
         borderRadius: 10,
-        borderWidth: 0.5,
+        borderWidth: 2,
         borderColor: 'rgba(11, 88, 159, 0.35)',
 
     },
@@ -99,9 +103,8 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     button: {
-        backgroundColor: '#1671C6', borderRadius: 30,
-        marginTop: 15,
-        marginLeft: 20,
-        marginRight: 20,
+        backgroundColor: '#2D2D6D', borderRadius: 30,
+        alignItems: 'center',
+        marginBottom:5
     },
 })

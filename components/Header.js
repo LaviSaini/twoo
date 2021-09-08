@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet,Text, Image, ImageBackground,TouchableOpacity } from 'react-native';
-import img3 from '../images/background.png';
+import img3 from '../images/Drawerback.png';
 const img2 = '../images/logo.png'
 
 export const Header = ({navigation}) => {
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         paddingBottom:3,
         fontSize:12,
         textAlign:'center',
-        backgroundColor:'#0B589F'
+        backgroundColor:'#2D2D6D'
         
         
     },

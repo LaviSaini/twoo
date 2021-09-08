@@ -102,8 +102,7 @@ export const Login = ({ navigation }) => {
                         <Image source={require(pwd)} style={{ marginTop: 25, marginLeft: 5, marginRight: 5, padding: 5, position: "absolute", left: 0 }} />
 
                         <TextInput
-                            style={{color:'black'}}
-                            style={{ paddingLeft: 30, width: "100%" }}
+                            style={{ paddingLeft: 30, width: "100%",color:'black' }}
                             placeholder="Enter your password"
                             placeholderTextColor="black"
                             secureTextEntry={eyeOpen ? false : true}
@@ -220,7 +219,7 @@ const styles = StyleSheet.create({
         //borderWidth: 2
     },
     button: {
-        backgroundColor: '#1671C6', borderRadius: 10,
+        backgroundColor: '#2D2D6D', borderRadius: 10,
         //marginTop: 15,
         //marginLeft: 60,
         //marginRight: 60,

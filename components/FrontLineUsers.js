@@ -79,7 +79,7 @@ export const FrontLineUsers = ({ navigation }) => {
          <DataTable.Title style={{padding:5}}>Token Earned</DataTable.Title>
        </DataTable.Header>
  
-        {treedata.map(item =><DataTable.Row>
+        {treedata?.map(item =><DataTable.Row>
          <DataTable.Cell>{moment(parseInt(item.dateCreated)).format("DD/MM/YYYY")}</DataTable.Cell>
          <DataTable.Cell numeric>{item.email}</DataTable.Cell>
          <DataTable.Cell numeric>{item.name}</DataTable.Cell>

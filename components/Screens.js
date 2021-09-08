@@ -1,10 +1,10 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
 import { Welcome } from './Welcome';
 import { Login } from "./Login";
@@ -25,49 +25,57 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 //const Stack1 = createStackNavigator();
 const Tab = createBottomTabNavigator();
-function MyTab() {
+
+
+
+
+const Screens = () => {
+
+  const { isAuth, user } = useSelector(state => state.auth)
+
+  function MyTab() {
     return (
-      <Tab.Navigator 
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
             let iconName;
   
             if (route.name === 'Payment') {
-                iconName = focused ? 'home' : 'home';
+              iconName = focused ? 'home' : 'home';
             } else if (route.name === 'Refferal') {
-                iconName = focused ? 'bookmark' : 'bookmark';
+              iconName = focused ? 'bookmark' : 'bookmark';
             } else if (route.name === 'Confirm Payment') {
-                iconName = focused ? 'apps' : 'apps';
-            } 
+              iconName = focused ? 'apps' : 'apps';
+            }
             return (
-                <Icon
-                    name={iconName}
-                    size={25}
-                    color={color}
-                />
+              <Icon
+                name={iconName}
+                size={25}
+                color={color}
+              />
             );
-        },
-        tabBarStyle:{
-          backgroundColor: '#0D063D',
-        },
-        tabBarLabelStyle:{
-          fontWeight:'bold',
-          fontSize:10,
-          color:'#FFFFFF',
-          marginBottom:1
+          },
+          tabBarStyle: {
+            backgroundColor: '#0D063D',
+          },
+          tabBarLabelStyle: {
+            fontWeight: 'bold',
+            fontSize: 10,
+            color: '#FFFFFF',
+            marginBottom: 1
           }
-    })}
+        })}
         tabBarOptions={{
-            swipeEnabled: false,
-            tabBarPosition: 'bottom',
-            activeTintColor: '#8888f7',
-            inactiveTintColor: '#f0f0f0',
-            keyboardHidesTabBar: true,
-            style: {
-              position: 'absolute',
-            },
+          swipeEnabled: false,
+          tabBarPosition: 'bottom',
+          activeTintColor: '#8888f7',
+          inactiveTintColor: '#f0f0f0',
+          keyboardHidesTabBar: true,
+          style: {
+            position: 'absolute',
+          },
         }}>
-      
+  
         <Tab.Screen name="Payment" component={Payment} options={{ headerShown: false }} />
         <Tab.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
         <Tab.Screen name="Confirm Payment" component={ConfirmPayment} options={{ headerShown: false }} />
@@ -76,23 +84,38 @@ function MyTab() {
     );
   }
   
-function MyDrawer() {
+  function MyDrawer() {
     return (
-      <Drawer.Navigator 
-     
-      screenOptions={{
-        drawerStyle:{
-          width: 250,
-          backgroundColor: '#0D063D',
+      <Drawer.Navigator
+  
+        screenOptions={{
+          drawerStyle: {
+            width: 250,
+            backgroundColor: '#0D063D',
           },
-          drawerLabelStyle:{
-            fontWeight:'bold',
-            fontSize:15,
-            color:'#FFFFFF'
+          drawerLabelStyle: {
+            fontWeight: 'bold',
+            fontSize: 15,
+            color: '#FFFFFF'
           }
-      }}
-      
-      initialRouteName="Payment">
+        }}
+  
+        initialRouteName="Payment">
+  
+  
+  
+  {
+    user.userData.referralCode === null ?  <>
+          <Drawer.Screen name="Payment" component={MyTab} options={{ headerShown: false }} /> 
+          <Drawer.Screen name="ConfirmPayment" component={ConfirmPayment} options={{ headerShown: false }} />
+          <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
+          </>
+    : 
+        
+          
+  
+  <>
+        
         <Drawer.Screen name="Binary Tree" component={Binarytree} options={{ headerShown: false }} />
         <Drawer.Screen name="Total Members" component={Total_Members} options={{ headerShown: false }} />
         <Drawer.Screen name="Direct Members" component={Direct_Members} options={{ headerShown: false }} />
@@ -103,39 +126,39 @@ function MyDrawer() {
         <Drawer.Screen name="Front Line Users" component={FrontLineUsers} options={{ headerShown: false }} />
         <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
         <Drawer.Screen name="ConfirmPayment" component={ConfirmPayment} options={{ headerShown: false }} />
-        <Drawer.Screen name="Payment" component={MyTab} options={{ headerShown: false }} />
-        
+ </>
+  }
+  
+  
+  
   
       </Drawer.Navigator>
     )
   }
-const AuthScreens = () => {
-return <>
-   <Stack.Navigator>
-      <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
-      <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
-      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-      {/* <Stack.Screen name="Payment" component={MyDrawer} options={{ headerShown: false }} /> */}
-     </Stack.Navigator>
-</>
-}
+  
+  const DashboardScreens = () => {
+    return <>
+      <MyDrawer />
+    </>
+  }
+  const AuthScreens = () => {
+    return <>
+      <Stack.Navigator>
+        <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
+        <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Payment" component={MyDrawer} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </>
+  }
+  
 
 
-const DashboardScreens = () => {
-return <>
-<MyDrawer/>
-</>
-}
-
-const Screens = () => {
-
-    const {isAuth} = useSelector(state => state.auth)
-
-    return (
-        <>
-        {!isAuth ? <AuthScreens/> : <DashboardScreens />}
-        </>
-    )
+  return (
+    <>
+      {!isAuth ? <AuthScreens /> : <DashboardScreens />}
+    </>
+  )
 
 }
 

@@ -109,7 +109,7 @@ export const Signup = ({ navigation }) => {
                     console.log(response.data);
                     // console.warn(response.data.message);
                     if (response.data.success) {
-                        navigation.push('Payment')
+                        navigation.push('Login')
                     }
 
 
@@ -166,15 +166,15 @@ export const Signup = ({ navigation }) => {
             <View>
                 <Text style={styles.signtext}>Sign Up</Text>
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+          {/*  <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                 <Image
                     style={styles.fbg}
                     source={require(gogle)} />
                 <Image
                     style={styles.fbg}
                     source={require(fb)} />
-            </View>
-            <View style={{ alignItems: 'center' }}>
+    </View>*/}
+            <View style={{ alignSelf:'center'}}>
                 <Text style={styles.text}>or register with Email</Text>
             </View>
             <View style={styles.signform}>
@@ -238,6 +238,7 @@ export const Signup = ({ navigation }) => {
                     </View>
                     <Text style={{ color: 'red', textAlign: 'left' }}>{errorcountryCode}</Text>
                 </View>
+                <View style={{flexGrow:1,justifyContent:'center'}}>
                 <View style={styles.forms}>
                     <Image source={require(currency)} />
                     <View >
@@ -260,6 +261,7 @@ export const Signup = ({ navigation }) => {
                         style={styles.formInput}
                         placeholder="Enter your password"
                         placeholderTextColor="black"
+                        secureTextEntry = {true}
                         onChangeText={(text) => setPassword(text)}
                         value={password}
                     />
@@ -274,6 +276,7 @@ export const Signup = ({ navigation }) => {
                     <TextInput
                         style={styles.formInput}
                         placeholder="Confirm Password"
+                        secureTextEntry = {true}
                         placeholderTextColor="black"
                         onChangeText={(text) => setconfirmPassword(text)}
                     />
@@ -298,7 +301,7 @@ export const Signup = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-
+            </View>
         </View>
 
 
@@ -341,9 +344,11 @@ const styles = StyleSheet.create({
     signform: {
 
         margin: 10,
+        alignSelf:'stretch',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E9F1F9',
+        paddingBottom:10,
         elevation: 1,
         borderRadius: 10,
         borderWidth: 0.5,
@@ -363,8 +368,8 @@ const styles = StyleSheet.create({
         color: '#000000'
     },
     button: {
-        backgroundColor: '#1671C6', borderRadius: 10,
+        backgroundColor: '#2D2D6D', borderRadius: 10,
         alignItems: 'center',
-        marginBottom: 5
+        marginBottom:5
     },
 })
