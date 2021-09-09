@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput,ToastAndroid } from 'react-native';
-import {useSelector} from "react-redux"
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ToastAndroid } from 'react-native';
+import { useSelector } from "react-redux"
 import Clipboard from '@react-native-community/clipboard';
 import { HeaderDraw } from './HeaderDraw';
 import { HeaderBackground } from '@react-navigation/elements';
@@ -9,7 +9,7 @@ import { HeaderBackground } from '@react-navigation/elements';
 
 export const RefferalScreen = ({ navigation }) => {
 
-    const {user} = useSelector(state => state.auth)
+    const { user } = useSelector(state => state.auth)
 
     const [rfCode, setrfcode] = useState(user.userData.referralCode)
     const writeToClipboard = () => {
@@ -19,9 +19,9 @@ export const RefferalScreen = ({ navigation }) => {
     return (
         <View>
             <View>
-            <HeaderDraw navigation={navigation} />
+                <HeaderDraw navigation={navigation} />
             </View>
-            
+
             <View>
                 <Text style={styles.text}>
                     Below is your referral code to share with your friends.
@@ -70,8 +70,8 @@ export const RefferalScreen = ({ navigation }) => {
 
                 <View style={styles.button}>
                     <TouchableOpacity
-                    onPress={writeToClipboard}
-                      //  onPress={() => navigation.navigate('RefferalScreen')}
+                        onPress={writeToClipboard}
+                    //  onPress={() => navigation.navigate('RefferalScreen')}
                     // onPress={() => Alert.alert('Logged In')}
                     >
                         <Text style={{
@@ -106,11 +106,11 @@ const styles = StyleSheet.create({
 
     },
     LoginFrom: {
-       // width: 319,
+        // width: 319,
         //height: 360,
-       // left: 35,
+        // left: 35,
         //top: 50,
-        alignSelf:'center',
+        alignSelf: 'center',
         alignItems: 'center',
         //justifyContent: 'center',
         backgroundColor: '#E9F1F9',
@@ -130,10 +130,10 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#2D2D6D', borderRadius: 7,
-        alignItems:'center',
-        marginBottom:5
+        alignItems: 'center',
+        marginBottom: 5
         //marginTop: 15,
-       // marginLeft: 20,
+        // marginLeft: 20,
         //marginRight: 20,
     },
 })
