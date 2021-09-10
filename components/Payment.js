@@ -212,7 +212,7 @@ export const Payment = ({ navigation }) => {
                                 <Image source={require(id)} style={{ marginTop: 10, alignItems: 'flex-start', padding: 5, position: "absolute", left: 0 }} />
                                 <TextInput
                                     // style={styles.formInput}
-                                    style={{ paddingLeft: 50, width: "100%" }}
+                                    style={{ paddingLeft: 50, width: "100%" ,color: 'black' }}
                                     placeholder="Transaction Id"
                                     placeholderTextColor="black"
                                     value={mes}

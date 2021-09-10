@@ -14,10 +14,10 @@ export const Welcome = ({ navigation }) => {
                     source={require(img2)}
                 />
             </View>
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 10 }}>
                 <Text style={styles.text}>WELCOME</Text>
             </View>
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 20, paddingBottom:15 }}>
                 <Text style={styles.texting}>
                     Find Deals For Your Delivery Errons
                 </Text>
@@ -25,8 +25,9 @@ export const Welcome = ({ navigation }) => {
                     Around The Time
                 </Text>
             </View>
-            <View style={styles.button}>
+            <View style={{paddingHorizontal:10,paddingTop:5}}>
                 <Pressable
+                style={styles.button}
                     onPress={() => navigation.navigate('Signup')}
                 >
                     <Text style={{
@@ -41,8 +42,9 @@ export const Welcome = ({ navigation }) => {
                 </Pressable>
             </View>
 
-            <View style={styles.button1}>
+            <View style={{paddingHorizontal:10,paddingTop:15}}>
                 <Pressable
+                style={styles.button1}
                     onPress={() => navigation.navigate('Login')}>
                     <Text style={{
                         textAlign: 'center',
@@ -67,8 +69,11 @@ const styles = StyleSheet.create({
         marginLeft: 2,
         marginRight: 2,
         marginTop: 1,
-        height: '100%',
-        backgroundColor: 'white'
+        width:'100%',
+        height:'100%',
+        backgroundColor: 'white',
+        alignSelf:'center',
+        paddingBottom:10
     },
     images: {
 
@@ -101,14 +106,14 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#1671C6', borderRadius: 30,
         alignItems: 'center',
-        margin: 10
+    
 
 
     },
     button1: {
         backgroundColor: '#2F2847', borderRadius: 30,
         alignItems: 'center',
-        margin: 10
+    
 
     }
 

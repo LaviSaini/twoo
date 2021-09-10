@@ -240,8 +240,10 @@ export const Signup = ({ navigation }) => {
                 </View>
                 <View style={{ }}>
                     <View style={styles.forms}>
-                        <Image source={require(currency)} />
-                        <View style={{flexGrow:1}} >
+                        <Image 
+                        style={{marginTop:15}}
+                        source={require(currency)} />
+                        <View style={{flexGrow:1,marginTop:15}} >
                             <Picker
                                 style={styles.formInput}
                                 selectedValue={selectedCurrency}

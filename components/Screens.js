@@ -124,8 +124,9 @@ const Screens = () => {
               <Drawer.Screen name="Total Defix Token Sold" component={TokenSold} options={{ headerShown: false }} />
               <Drawer.Screen name="Defix Purchased" component={Purchased} options={{ headerShown: false }} />
               <Drawer.Screen name="Front Line Users" component={FrontLineUsers} options={{ headerShown: false }} />
+              <Drawer.Screen name="Payment" component={Payment} options={{ headerShown: false }} />
               <Drawer.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
-              <Drawer.Screen name="ConfirmPayment" component={ConfirmPayment} options={{ headerShown: false }} />
+             
             </>
         }
 
