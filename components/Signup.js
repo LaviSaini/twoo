@@ -322,7 +322,8 @@ const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontWeight: 'bold',
         fontSize: 20,
-        color: '#000000'
+        color: '#000000',
+        
     },
     forms: {
         flexDirection: 'row', borderBottomColor: 'black',
@@ -365,9 +366,10 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: '300',
-        fontSize:12,
+        fontSize:15,
         paddingLeft:10,
-        color: '#000000'
+        color: '#000000',
+        flexGrow:1
     },
     button: {
         backgroundColor: '#2D2D6D', borderRadius: 10,

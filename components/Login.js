@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: '300',
-        fontSize: 13,
+        fontSize: 15,
         color: '#000000',
         //borderWidth: 2
     },

@@ -78,7 +78,7 @@ const Screens = () => {
 
         <Tab.Screen name="Payment" component={Payment} options={{ headerShown: false }} />
         <Tab.Screen name="Refferal" component={RefferalScreen} options={{ headerShown: false }} />
-        <Tab.Screen name="Confirm Payment" component={ConfirmPayment} options={{ headerShown: false }} />
+        
 
       </Tab.Navigator>
     );
