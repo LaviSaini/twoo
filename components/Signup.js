@@ -223,11 +223,11 @@ export const Signup = ({ navigation }) => {
                     <Image source={require(country)} />
 
 
-                    <View >
+                    <View style={{marginVertical:5}} >
 
 
                         <CountryPicker
-                            containerButtonStyle={{ marginLeft: 5, marginTop: 10, flexGrow: 1, padding: 12 }}
+                            containerButtonStyle={{padding:10}}
                             nfb countryCode={countryCode}
                             withFilter
                             withCountryNameButton
@@ -238,10 +238,10 @@ export const Signup = ({ navigation }) => {
                     </View>
                     <Text style={{ color: 'red', textAlign: 'left' }}>{errorcountryCode}</Text>
                 </View>
-                <View style={{ flexGrow: 1, justifyContent: 'center' }}>
+                <View style={{ }}>
                     <View style={styles.forms}>
                         <Image source={require(currency)} />
-                        <View >
+                        <View style={{flexGrow:1}} >
                             <Picker
                                 style={styles.formInput}
                                 selectedValue={selectedCurrency}
@@ -326,7 +326,9 @@ const styles = StyleSheet.create({
     },
     forms: {
         flexDirection: 'row', borderBottomColor: 'black',
-        borderBottomWidth: 1, alignItems: 'center', elevation: 1
+        borderBottomWidth: 1,alignItems:'center',
+        marginHorizontal:10,
+    
     },
     fbg: {
         height: 40,
@@ -345,7 +347,7 @@ const styles = StyleSheet.create({
 
         margin: 10,
         alignSelf: 'stretch',
-        alignItems: 'center',
+      //  alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E9F1F9',
         paddingBottom: 10,
@@ -363,13 +365,13 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: '300',
-        fontSize: 13,
-        width: 280,
+        fontSize:12,
+        paddingLeft:10,
         color: '#000000'
     },
     button: {
         backgroundColor: '#2D2D6D', borderRadius: 10,
         alignItems: 'center',
-        marginBottom: 5
+        marginHorizontal:10
     },
 })
